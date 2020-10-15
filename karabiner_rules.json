@@ -1,0 +1,244 @@
+{
+  "title": "Compensate for bad typing technique",
+  "author": "Rafi Khan",
+  "rules": [
+    {
+      "description": "Prevent Awkward Undo/Cut/Copy/Paste",
+      "manipulators": [
+        {
+          "from": { "key_code": "z", "modifiers": { "required": ["left_command"] } },
+          "to":   [{"key_code": "vk_none" }],
+          "type": "basic"
+        },
+        {
+          "from": { "key_code": "c", "modifiers": { "required": ["left_command"] } },
+          "to":   [{"key_code": "vk_none" }],
+          "type": "basic"
+        },
+        {
+          "from": { "key_code": "x", "modifiers": { "required": ["left_command"] } },
+          "to":   [{"key_code": "vk_none" }],
+          "type": "basic"
+        },
+        {
+          "from": { "key_code": "v", "modifiers": { "required": ["left_command"] } },
+          "to":   [{"key_code": "vk_none" }],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "Prevent Awkward Save",
+      "manipulators": [
+        {
+          "from": { "key_code": "s", "modifiers": { "required": ["left_command"] } },
+          "to":   [{"key_code": "vk_none" }],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "Disable Right Command on external windows keyboard",
+      "manipulators": [
+        {
+          "from": { "key_code": "right_command" },
+          "to":   [{"key_code": "vk_none" }],
+          "conditions":[{
+            "type": "device_if",
+            "identifiers": [{
+              "vendor_id": 1423,
+              "product_id": 37904,
+              "description": "Kinesis Freestyle (Win)"
+            }]
+          }],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "Remap Kinesis Windows Keyboard to mac bindings",
+      "manipulators": [
+        {
+          "from": { "key_code": "left_command" },
+          "to":   [{"key_code": "left_option" }],
+          "conditions":[{
+            "type": "device_if",
+            "identifiers": [{
+              "vendor_id": 1423,
+              "product_id": 37904,
+              "description": "Kinesis Freestyle (Win)"
+            }]
+          }],
+          "type": "basic"
+        },
+        {
+          "from": { "key_code": "left_option" },
+          "to":   [{"key_code": "left_command" }],
+          "conditions":[{
+            "type": "device_if",
+            "identifiers": [{
+              "vendor_id": 1423,
+              "product_id": 37904,
+              "description": "Kinesis Freestyle (Win)"
+            }]
+          }],
+          "type": "basic"
+        },
+        {
+          "from": { "key_code": "right_option" },
+          "to":   [{"key_code": "right_command" }],
+          "conditions":[{
+            "type": "device_if",
+            "identifiers": [{
+              "vendor_id": 1423,
+              "product_id": 37904,
+              "description": "Kinesis Freestyle (Win)"
+            }]
+          }],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "Disable Brackets",
+      "manipulators": [
+        {
+          "from": { "key_code": "open_bracket", "modifiers": { "optional": ["any"] } },
+          "to":   [{"key_code": "vk_none" }],
+          "type": "basic"
+        },
+        {
+          "from": { "key_code": "close_bracket", "modifiers": { "optional": ["any"] } },
+          "to":   [{"key_code": "vk_none" }],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "Disable Arrow Keys",
+      "manipulators": [
+        {
+          "from": { "key_code": "up_arrow", "modifiers": { "optional": ["any"] } },
+          "to":   [{"key_code": "vk_none" }],
+          "type": "basic"
+        },
+        {
+          "from": { "key_code": "down_arrow", "modifiers": { "optional": ["any"] } },
+          "to":   [{"key_code": "vk_none" }],
+          "type": "basic"
+        },
+        {
+          "from": { "key_code": "left_arrow", "modifiers": { "optional": ["any"] } },
+          "to":   [{"key_code": "vk_none" }],
+          "type": "basic"
+        },
+        {
+          "from": { "key_code": "right_arrow", "modifiers": { "optional": ["any"] } },
+          "to":   [{"key_code": "vk_none" }],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "vCapsLock, vEnter",
+      "manipulators": [
+        {
+          "from": { "key_code": "return_or_enter", "modifiers": { "optional": ["any"] } },
+          "to":              [{ "set_variable": { "name": "vk_enter", "value": 1 }}],
+          "to_after_key_up": [{ "set_variable": { "name": "vk_enter", "value": 0 }}],
+          "type": "basic"
+        },
+        {
+          "from": { "key_code": "caps_lock", "modifiers": { "optional": ["any"] } },
+          "to_if_alone":     [{ "key_code": "return_or_enter" }],
+          "to_if_held_down": [{ "key_code": "return_or_enter" }],
+          "to":              [{ "set_variable": { "name": "vk_capslock", "value": 1 }}],
+          "to_after_key_up": [{ "set_variable": { "name": "vk_capslock", "value": 0 }}],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "vSpacebar",
+      "manipulators": [
+        {
+          "from": { "key_code": "spacebar", "modifiers": { "optional": ["any"] } },
+          "to_if_alone":     [{ "key_code": "spacebar" }],
+          "to_if_held_down": [{ "key_code": "spacebar" }],
+          "to":              [{ "set_variable": { "name": "vk_spacebar", "value": 1 }}],
+          "to_after_key_up": [{ "set_variable": { "name": "vk_spacebar", "value": 0 }}],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "vF11",
+      "manipulators": [
+        {
+          "from": { "key_code": "f11", "modifiers": { "required": ["left_control", "left_option", "left_shift", "right_command"] } },
+          "to":              [{ "set_variable": { "name": "vk_f11", "value": 1 }}],
+          "to_after_key_up": [{ "set_variable": { "name": "vk_f11", "value": 0 }}],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "vSpace + wasd => arrow keys",
+      "manipulators": [
+        { 
+          "from": { "key_code": "e", "modifiers": { "optional": [ "any" ] } },
+          "to": [{ "key_code": "up_arrow" }],
+          "conditions": [{ "type": "variable_if", "name": "vk_spacebar", "value": 1 }],
+          "type": "basic"
+        },
+        { 
+          "from": { "key_code": "s", "modifiers": { "optional": [ "any" ] } },
+          "to": [{ "key_code": "left_arrow" }],
+          "conditions": [{ "type": "variable_if", "name": "vk_spacebar", "value": 1 }],
+          "type": "basic"
+        },
+        { 
+          "from": { "key_code": "d", "modifiers": { "optional": [ "any" ] } },
+          "to": [{ "key_code": "down_arrow" }],
+          "conditions": [{ "type": "variable_if", "name": "vk_spacebar", "value": 1 }],
+          "type": "basic"
+        },
+        { 
+          "from": { "key_code": "f", "modifiers": { "optional": [ "any" ] } },
+          "to": [{ "key_code": "right_arrow" }],
+          "conditions": [{ "type": "variable_if", "name": "vk_spacebar", "value": 1 }],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "vCapsLock + (jk or ui) => {} []",
+      "manipulators": [
+        {
+          "from": { "key_code": "j" },
+          "to": [{ "key_code": "open_bracket" }],
+          "conditions": [{ "type": "variable_if", "name": "vk_capslock", "value": 1 }],
+          "type": "basic"
+        },
+        {
+          "from": { "key_code": "k" },
+          "to": [{  "key_code": "close_bracket" }],
+          "conditions": [{ "type": "variable_if", "name": "vk_capslock", "value": 1 }],
+          "type": "basic"
+        },
+        {
+          "from": { "key_code": "u" },
+          "to": [{ "key_code": "open_bracket" }],
+          "conditions": [{ "type": "variable_if", "name": "vk_capslock", "value": 1 }],
+          "type": "basic"
+        },
+        {
+          "from": { "key_code": "i" },
+          "to": [{ "key_code": "close_bracket" }],
+          "conditions": [{ "type": "variable_if", "name": "vk_capslock", "value": 1 }],
+          "type": "basic"
+        }
+      ]
+    }
+  ]
+}
