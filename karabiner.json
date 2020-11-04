@@ -367,7 +367,10 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "open_bracket"
+                                        "key_code": "open_bracket",
+                                        "modifiers": [
+                                            "left_shift"
+                                        ]
                                     }
                                 ],
                                 "type": "basic"
@@ -385,7 +388,10 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "close_bracket"
+                                        "key_code": "close_bracket",
+                                        "modifiers": [
+                                            "left_shift"
+                                        ]
                                     }
                                 ],
                                 "type": "basic"
