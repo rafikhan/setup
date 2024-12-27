@@ -73,7 +73,7 @@
       ]
     },
     {
-      "description": "Disable Right Command on external windows keyboard",
+      "description": "Disable Right Command on Kinesis Windows Keyboard",
       "manipulators": [
         {
           "from": { "key_code": "right_command"  },
@@ -81,9 +81,9 @@
           "conditions":[{
             "type": "device_if",
             "identifiers": [{
-              "vendor_id": 1423,
-              "product_id": 37904,
-              "description": "Kinesis Freestyle (Win)"
+              "vendor_id": 10730,
+              "product_id": 32778,
+              "description": "Kinesis Freestyle2 (Win)"
             }]
           }],
           "type": "basic"
@@ -91,7 +91,7 @@
       ]
     },
     {
-      "description": "Remap Kinesis Windows Keyboard to mac bindings",
+      "description": "Remap Kinesis Windows Keyboard to Mac bindings",
       "manipulators": [
         {
           "from": { "key_code": "left_command" },
@@ -99,9 +99,9 @@
           "conditions":[{
             "type": "device_if",
             "identifiers": [{
-              "vendor_id": 1423,
-              "product_id": 37904,
-              "description": "Kinesais Freestyle (Win)"
+              "vendor_id": 10730,
+              "product_id": 32778,
+              "description": "Kinesis Freestyle2 (Win)"
             }]
           }],
           "type": "basic"
@@ -112,9 +112,9 @@
           "conditions":[{
             "type": "device_if",
             "identifiers": [{
-              "vendor_id": 1423,
-              "product_id": 37904,
-              "description": "Kinesis Freestyle (Win)"
+              "vendor_id": 10730,
+              "product_id": 32778,
+              "description": "Kinesis Freestyle2 (Win)"
             }]
           }],
           "type": "basic"
@@ -125,9 +125,9 @@
           "conditions":[{
             "type": "device_if",
             "identifiers": [{
-              "vendor_id": 1423,
-              "product_id": 37904,
-              "description": "Kinesis Freestyle (Win)"
+              "vendor_id": 10730,
+              "product_id": 32778,
+              "description": "Kinesis Freestyle2 (Win)"
             }]
           }],
           "type": "basic"
