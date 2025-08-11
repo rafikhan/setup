@@ -251,13 +251,13 @@
       "manipulators": [
         {
           "from": { "key_code": "j" },
-          "to": [{ "key_code": "open_bracket", "modifiers": ["left_shift"] }],
+          "to": [{ "key_code": "open_bracket" }],
           "conditions": [{ "type": "variable_if", "name": "vk_capslock", "value": 1 }],
           "type": "basic"
         },
         {
           "from": { "key_code": "k" },
-          "to": [{  "key_code": "close_bracket", "modifiers": ["left_shift"] }],
+          "to": [{  "key_code": "close_bracket" }],
           "conditions": [{ "type": "variable_if", "name": "vk_capslock", "value": 1 }],
           "type": "basic"
         },
